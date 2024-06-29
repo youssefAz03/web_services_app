@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+
+<div class="custom-body">
+    <div class="custom-create-service"> 
+        <form method="POST" action="/update_service/{{ service['id'] }}" enctype="multipart/form-data">
+            <h1>Update service</h1>
+            <div class="custom-input-box">
+                <input type="text" placeholder="Title" name="title" value="{{ service['title'] }}" required>
+            </div>
+            
+            <div class="custom-input-box">
+                <textarea id="custom-description" placeholder="Description" rows="3" name="description" rows="3">{{ service['description'] }}</textarea>
+            </div>
+
+            <div class="custom-input-box">
+                <input type="number" placeholder="price" name="price" value="{{ service['price'] }}" min="0" required>
+            </div>
+
+            <div class="custom-input-box">
+                <select id="custom-category" aria-placeholder="Category" name="category" required>
+                    {% for category in categories %}
+                        <option value="{{ category['category'] }}">{{ category['category'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <button type="submit" class="custom-sub-btn">Update</button>
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}

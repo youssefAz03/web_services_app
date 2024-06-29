@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+<div class="body">
+    <div class="wrapper"> 
+    <form method="POST" action="/sign_up" enctype="multipart/form-data">
+        <h1>Sign up</h1>
+        <div class="input-box">
+            <input type="text" placeholder="username" name="username"  required>
+            <i class='bx bxs-user'></i>
+            {% if id == -1 %}
+            <div class="invalid-feedback">Username already exists.</div>
+            {% endif %}
+        </div>
+        
+        <div class="input-box">
+            <input type="text" placeholder="first name" name="first_name"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="last name" name="last_name"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="email" placeholder="email" name="email"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="tel" placeholder="phone" name="phone"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="password" placeholder="password" name="password"  required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+
+        <div class="input-file-box">
+            <input type="file" placeholder="Profile picture" name="image"  accept="image/*">
+            <label for="fileInput" class="custom-file-upload">Upload Profile Picture</label>
+        </div>
+
+        <button type="submit" class="sub-btn">Sign up</button>
+        <d-flex class="register-link">
+            <p>I have already an account? <a href="/login">Login</a></p>
+        </d-flex>
+    </form>
+</div>
+</div>
+
+{% include 'footer.html' %}

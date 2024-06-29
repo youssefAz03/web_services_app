@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+<div class="body">
+<div class="wrapper">  
+    <form method="POST" action="/login" enctype="multipart/form-data">
+        <h1>Login</h1>
+        <div class="input-box">
+            <input type="text" placeholder="username" name="username" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="password" name="password" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        {% if id == -1 %}
+        <p class="incorrect_info">*Incorrect information</p>
+        {% endif %}
+        <button type="submit" class="sub-btn">Login</button>
+        <d-flex class="register-link">
+            <p>Dont' have an account? <a href="/sign_up">Sign up</a></p>
+        </d-flex>
+    </form>
+</div>
+</div>
+{% include 'footer.html' %}

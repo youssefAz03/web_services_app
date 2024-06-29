@@ -1,0 +1,19 @@
+{% include 'header.html' %}
+
+<div class="service-reader">
+
+    <div class="contact-service">
+        <h1>Delete "{{ client['title'] }}" </h1>
+        <div class="update-btn-container">
+            <form method="POST" action="/delete_client/{{ client['id'] }}">
+                <input type="hidden">
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+            <form method="GET" action="/client/{{ client['id'] }}">
+                <input type="hidden">
+                <button type="submit" class="sub-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

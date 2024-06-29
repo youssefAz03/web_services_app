@@ -1,0 +1,76 @@
+{% include "header.html" %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 text-container">
+      <div class="p-5 mb-4 rounded-3">
+        <h1 class="display-5 fw-bold">You're ready to start just keep going</h1>
+        <p class="col-md-8 fs-4">
+          Unlock the full potential of your digital presence with our
+          cutting-edge solutions. From web development to digital marketing, we
+          provide flexible, compliant, and secure services tailored to your
+          needs. Get started for free today!
+        </p>
+        {% if 'username' in session %}
+        <a href="/create_client">Create your request!</a>
+        {% else %}
+        <a href="/sign_up">Get started</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-6 img-container">
+      <div class="container-fluid py-5">
+        <img
+          src="{{ url_for('static', filename='images/typing-bro.png') }}"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <section class="exp-cards">
+    <h1 class="title">Explore Our Offerings</h1>
+    <div class="card-display">
+      <div class="card">
+        <i class="fa-solid fa-share"></i>
+        <div class="card-content">
+          <h3 class="card-title">Publish Details</h3>
+          <p class="description">
+            Publish the details of your web design needs in just a few moments,
+            completely free of charge.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-layer-group"></i>
+        <div class="card-content">
+          <h3 class="card-title">Publish Your Services</h3>
+          <p class="description">
+            Offer your web design services in just a few moments, for free.
+            Reach new clients and showcase your expertise in web design.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+        <div class="card-content">
+          <h3 class="card-title">Compare</h3>
+          <p class="description">
+            Review proposals, compare web design rates, and select the best
+            local web designers for your needs.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-business-time"></i>
+        <div class="card-content">
+          <h3 class="card-title">Find professionals</h3>
+          <p class="description">
+            Find a professional in the sector you need and contact them
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% include "footer.html" %}

@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+
+
+<div class="service-reader">
+    <div class="title"><h1>{{ service['title'] }}</h1></div>
+  
+    <div class="description-service">
+        <div class="img-container">
+            <img src="data:image/jpeg;base64,{{ service['image'] }}" alt="Product Image" class="img-fluid">
+        </div>
+        <div class="description">
+            <h4>Description:</h4>
+            <p>{{ service['description'] }}</p>
+        </div>
+    </div>
+    <div class="contact-service">
+        <div class="details">
+            <h2>{{ service['title'] }}</h2>
+            <p><strong>Service name:</strong> {{ service['title'] }}</p>
+            <p ><strong>Price:</strong> {{ service['price'] }} EU </p>
+            <p><strong>Category:</strong> {{ service['category'] }}</p>
+            <p><strong>Date:</strong> {{ service['date'] }}</p>
+        </div>
+        <div class="update-btn-container">  
+            <a href="/profile/{{ id }}" class="sub-btn">Profile</a>
+            {% if session['id'] == id %}
+            <a href="/update_service/{{ service['id'] }}" class="sub-btn">Edit service</a>
+            <a href="/update_service_image/{{ service['id'] }}" class="sub-btn">Update Image</a>
+            <a href="/delete_service/{{ service['id'] }}" class="delete-btn">Delete service</a>
+            {% endif %}
+    </div>
+        
+    </div>
+
+</div>
+
+{% include 'footer.html' %}

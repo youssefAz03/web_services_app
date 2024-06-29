@@ -1,0 +1,36 @@
+{% include 'header.html' %}
+
+<div class="body">
+    <div class="wrapper"> 
+    <form method="POST" action="/update_profile" enctype="multipart/form-data">
+        <h1>Update profile</h1>
+        <div class="input-box">
+            <input type="text" value="{{ user['username'] }}"  placeholder="username" name="username"  required>
+            <i class='bx bxs-user'></i>
+            {% if id == -1 %}
+            <div class="invalid-feedback">Username already exists.</div>
+            {% endif %}
+        </div>
+        
+        <div class="input-box">
+            <input type="text" value="{{ user['first_name'] }}" placeholder="first name" name="first_name"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="text" value="{{ user['last_name'] }}" placeholder="last name" name="last_name"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="email" value="{{ user['email'] }}" placeholder="email" name="email"  required>
+        </div>
+
+        <div class="input-box">
+            <input type="tel" value="{{ user['phone'] }}" placeholder="phone" name="phone"  required>
+        </div>
+
+        <button type="submit" class="sub-btn">Update</button>
+    </form>
+</div>
+</div>
+
+{% include 'footer.html' %}

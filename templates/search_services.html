@@ -1,0 +1,49 @@
+{% include "header.html" %}
+
+<div class="search-container">
+    <form class="search" action="/search_services" role="search">
+        <div class="input-box">
+            <input placeholder="Search service" type="text" placeholder="Search" name="query" aria-label="Search" value="{{ query }}">
+            <i class='bx bx-search'></i>
+        </div>
+        <button class="sub-btn" type="submit">Search</button>
+    </form>
+   
+    <div class="search-result">
+        <h1>{{ found['num_found'] }} services found (page {{ found['page'] }}/{{ found['num_pages'] }})</h1>
+    </div>
+
+    {% if found['num_found'] == 0 %}
+        <div class="empty-result">
+            <img src="{{ url_for('static', filename='images/empty-icon.png') }}" alt="No Results Found">
+            <h1>No resultes found</h1>
+        </div>
+    {% endif %}
+
+    <div class="card-display">
+        {% for result in found['results'] %}
+        <div class="card">
+            <a href="/service/{{ result['id'] }}" class="card-link">   
+                <img src="data:image/jpeg;base64,{{ result['image'] }}" class="card-img-top" alt="{{ result['title'] }}">    
+                <div class="card-content">
+                    <h3 class="card-title">{{ result['title'] }}</h3>
+                    <p class="category">{{ result['category'] }}</p>
+                    <h6 class="price">{{ result['price'] }} EU</h6>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="next-page">
+        {% if found['page'] >= 2 %}
+            <a href="/search_services?query={{ found['query'] }}&page={{ found['page']-1 }}" class="btn-link"><i class="fa-solid fa-arrow-left"></i>Previeus Page</a>
+        {% endif %}
+        {% if found['num_pages'] >= found['next_page']%}
+            <a href="/search_services?query={{ found['query'] }}&page={{ found['next_page'] }}" class="btn-link">Next Page<i class="fa-solid fa-arrow-right"></i></a>
+        {% endif %}
+    </div>
+   
+</div>
+
+{% include "footer.html" %}

@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+<form class="d-flex ms-3"  action="/search_services" role="search">
+    <input class="form-control me-2" type="text" placeholder="Requête" name="query" aria-label="Search" value="{{ query }}">
+    <button class="btn btn-outline-success" type="submit">Rechercher</button>
+</form>
+    {% if services %}
+        {% for service in services %}
+        <a href="/service/{{service['id']}}" class="text-decoration-none">
+        <div class="card">
+            <img src="data:image/jpeg;base64,{{ service['image'] }}" class="img-fluid rounded" alt="service Image" />      
+            <h5>{{ service['title'] }}</h5>
+            <h6>{{ service['username'] }}</h6>
+            <h6>{{ service['category'] }}</h6>
+            <h6>{{ service['price'] }}</h6>
+        </div>
+        </a>
+        {% endfor %}  
+    {% else  %} 
+    <img src="{{ url_for('static', filename='images/empty.gif') }}" alt="empty">
+    {% endif %}
+{% include 'footer.html' %}

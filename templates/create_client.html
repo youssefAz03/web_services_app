@@ -1,0 +1,66 @@
+{% include 'header.html' %}
+
+<!-- <div class="container mt-5">
+    <h2>Create Client Form</h2>
+    <form method="POST" action="/create_client" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price:</label>
+            <input type="number" class="form-control" id="price" name="price" required min="0">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category:</label>
+            <input type="text" class="form-control" id="category" name="category" required>
+        </div>
+        <div class="mb-3">
+            <label for="client_image" class="form-label">Client Picture:</label>
+            <input type="file" class="form-control" id="client_image" name="image" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+ -->
+ <div class="custom-body">
+    <div class="custom-create-service"> 
+        <form method="POST" action="/create_client" enctype="multipart/form-data">
+            <h1>Create client</h1>
+            <div class="custom-input-box">
+                <input type="text" placeholder="Title" name="title"  maxlength="29" required>
+            </div>
+            
+            <div class="custom-input-box">
+                <textarea id="custom-description" placeholder="Description" name="description" rows="3"></textarea>
+            </div>
+
+            <div class="custom-input-box">
+                <input type="number" placeholder="price" name="price" min="0" required>
+            </div>
+
+            <div class="custom-input-box">
+                <select id="custom-category" aria-placeholder="Category" name="category" required>
+                    {% for category in categories %}
+                        <option value="{{ category['category'] }}">{{ category['category'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="custom-input-file-box">
+                <input type="file" placeholder="Profile picture" name="image"  accept="image/*">
+                <label for="fileInput" class="custom-file-upload">Upload client picture</label>
+            </div>
+
+            <button type="submit" class="custom-sub-btn">Create</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% include 'footer.html' %}
